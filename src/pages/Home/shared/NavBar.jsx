@@ -5,18 +5,14 @@ const NavBar = () => {
     const navOption = <>
         <li><a>Item 1</a></li>
         <li>
-            <a>Parent</a>
-            <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-            </ul>
+           <a href="">Item 2</a>
         </li>
         <li><a>Item 3</a></li>
     </>
 
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar fixed z-10 opacity-30 text-shadow-black bg-white font-bold max-w-7xl shadow-sm text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,7 +25,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <div className='bg-transparent'>
-                        <img src="https://i.ibb.co.com/21VLyCFQ/download-1.webp" alt="" className='w-30 mix-blend-multiply hue-rotate-90 saturate-200 rounded-full h-20 overflow-hidden object-cover' />
+                        <img src="https://i.ibb.co.com/21VLyCFQ/download-1.webp" alt="" className='w-30 mix-blend-multiply hue-rotate-90 saturate-200 rounded-full h-20 object-cover' />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
