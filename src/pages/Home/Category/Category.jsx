@@ -15,7 +15,7 @@ import SectionTitle from '../../../components/SectionTitle';
 
 const Category = () => {
     return (
-        <div className='my-10'>
+        <div className='my-20'>
             <SectionTitle
                 subHeading={"From 11.00am to 10pm"}
                 heading={"Order Online"}
@@ -33,23 +33,23 @@ const Category = () => {
             >
                 <SwiperSlide>
                     <img src={slide1} alt="" />
-                    <h3 className="text-4xl uppercase text-center text-white -mt-20">Salad</h3>
+                    <h3 className="text-4xl uppercase text-center text-white -mt-16 [text-shadow:2px_2px_0px_black]">Salad</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={slide2} alt="" />
-                    <h3 className="text-4xl uppercase text-center text-white -mt-20">Pizzas</h3>
+                    <h3 className="text-4xl uppercase text-center text-white -mt-16 [text-shadow:2px_2px_0px_black]">Pizzas</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={slide3} alt="" />
-                    <h3 className="text-4xl uppercase text-center text-white -mt-20">Soup</h3>
+                    <h3 className="text-4xl uppercase text-center text-white -mt-16 [text-shadow:2px_2px_0px_black]">Soup</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={slide4} alt="" />
-                    <h3 className="text-4xl uppercase text-center text-white -mt-20">Desserts</h3>
+                    <h3 className="text-4xl uppercase text-center text-white -mt-16 [text-shadow:2px_2px_0px_black]">Desserts</h3>
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={slide5} alt="" />
-                    <h3 className="text-4xl uppercase text-center text-white -mt-20">Salad</h3>
+                    <h3 className="text-4xl uppercase text-center text-white -mt-16 [text-shadow:2px_2px_0px_black]">Salad</h3>
                 </SwiperSlide>
             </Swiper>
         </div>
