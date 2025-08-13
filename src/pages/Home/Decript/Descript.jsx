@@ -4,7 +4,7 @@ import chefService from '../../../assets/home/chef-service.jpg';
 const Descript = () => {
     return (
         <div
-            className="hero min-h-[500px] bg-fixed p-20 my-24 max-w-[1000px] mx-auto"
+            className="hero min-h-[500px] bg-fixed p-20 my-24"
             style={{
                 backgroundImage:
                     `url(${chefService})`,
