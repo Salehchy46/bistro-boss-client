@@ -1,12 +1,13 @@
 import React from 'react';
+import chefService from '../../../assets/home/chef-service.jpg';
 
 const Descript = () => {
     return (
         <div
-            className="hero min-h-[500px] p-20 my-24 max-w-[1000px] mx-auto"
+            className="hero min-h-[500px] bg-fixed p-20 my-24 max-w-[1000px] mx-auto"
             style={{
                 backgroundImage:
-                    "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+                    `url(${chefService})`,
             }}
         >
             <div className="hero-overlay bg-white"></div>
