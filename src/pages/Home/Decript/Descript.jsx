@@ -1,25 +1,16 @@
 import React from 'react';
 import chefService from '../../../assets/home/chef-service.jpg';
+import Cover from '../../../components/Cover';
 
 const Descript = () => {
     return (
-        <div
-            className="hero min-h-[500px] bg-fixed p-20 my-24"
-            style={{
-                backgroundImage:
-                    `url(${chefService})`,
-            }}
-        >
-            <div className="hero-overlay bg-white"></div>
-            <div className="hero-content text-neutral-content text-center">
-                <div className="max-w-md">
-                    <h1 className="mb-5 text-4xl text-black">Bistro Boss</h1>
-                    <p className="mb-5  text-black">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
-                </div>
-            </div>
+        <div>
+            <Cover
+                bgImage={chefService}
+                coverHeading={'Bistro Boss'}
+                coverSubHeading={'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo.'}
+            >
+            </Cover>
         </div>
     );
 };
