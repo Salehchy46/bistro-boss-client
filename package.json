@@ -12,10 +12,11 @@
   "dependencies": {
     "@smastrom/react-rating": "^1.5.0",
     "@tailwindcss/vite": "^4.1.11",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.5",
+    "react-parallax": "^3.5.2",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.8.0",
     "swiper": "^11.2.10",
