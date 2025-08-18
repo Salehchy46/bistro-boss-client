@@ -1,6 +1,7 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
 
+
 const Cover = ({ bgImage, coverHeading, coverSubHeading }) => {
     return (
         <Parallax
