@@ -1,0 +1,24 @@
+/* Base bullet style */
+.swiper-pagination-bullet {
+  background: #ddd;          /* default background */
+  color: black;              /* text color */
+  width: 25px;               /* make wider for numbers */
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  border-radius: 50%;        /* round shape */
+  opacity: 0.7;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* Active bullet */
+.swiper-pagination-bullet-active {
+  background: #ff6347;       /* active background */
+  color: white;              /* active text color */
+  opacity: 1;
+  transform: scale(1.2);
+  font-weight: bold;
+}
