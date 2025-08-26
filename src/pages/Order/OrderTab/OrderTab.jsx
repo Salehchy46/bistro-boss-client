@@ -2,25 +2,25 @@ import React from 'react';
 import FoodCard from '../../../components/FoodCard';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+// import { Pagination } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
-import '../OrderTab/orderTab.css'
+// import 'swiper/css/pagination';
+// import '../OrderTab/orderTab.css'
 
 const OrderTab = ({ items }) => {
-    const pagination = {
-        clickable: true,
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>'
-        }
-    }
+    // const pagination = {
+    //     clickable: true,
+    //     renderBullet: function (index, className) {
+    //         return '<span class="' + className + '">' + (index + 1) + '</span>'
+    //     }
+    // }
     return (
         <div>
             <Swiper
-                modules={[pagination]}
-                pagination={pagination}
+                // modules={[pagination]}
+                // pagination={pagination}
                 className='mySwiper'
             >
                 <SwiperSlide>
