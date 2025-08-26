@@ -19,6 +19,7 @@ const Login = () => {
     }
 
     const handleValidateCaptcha = e => {
+        e.preventDefault();
         const user_captcha_value = captchRef.current.value;
         if(validateCaptcha(user_captcha_value)){
             setDisabled(false);
