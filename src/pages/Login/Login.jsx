@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 
 const Login = () => {
+
+    const captchRef = useRef(null)
+    const [disabled, setDisabled] = useState(true);
+
+    useEffect(() => {
+        loadCaptchaEnginge(6)
+    }, []);
 
     const handlelLogin = e => {
         e.preventDefault();
@@ -8,6 +16,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+    }
+
+    const handleValidateCaptcha = e => {
+        const user_captcha_value = captchRef.current.value;
+        if(validateCaptcha(user_captcha_value)){
+            setDisabled(false);
+        }
+        else{
+            setDisabled(true);
+        }
     }
 
     return (
@@ -23,13 +41,22 @@ const Login = () => {
                 <div className="card bg-base-100 md:w-1/2 max-w-sm shadow-2xl">
                     <form className="card-body" onSubmit={handlelLogin}>
                         <fieldset className="fieldset">
-                            <label className="label">Email</label>
-                            <input type="email" name='email' className="input" placeholder="Email" />
-                            <label className="label">Password</label>
-                            <input type="password" name='password' className="input" placeholder="Password" />
-                            <div><a className="link link-hover">Forgot password?</a></div>
+                            <div>
+                                <label className="label">Email</label>
+                                <input type="email" name='email' className="input" placeholder="Email" />
+                                <label className="label">Password</label>
+                                <input type="password" name='password' className="input" placeholder="Password" />
+                                <div><a className="link link-hover">Forgot password?</a></div>
+                            </div>
+                            <div className='text-center'>
+                                <label htmlFor="" className='label'>
+                                    <LoadCanvasTemplate />
+                                </label>
+                                <input type="text" ref={captchRef} name='captcha' className='input' placeholder='Input the Captcha' />
+                                <button className="btn btn-outline btn-xs text-center mt-3" onClick={handleValidateCaptcha}>Validate</button>
+                            </div>
                             <div className='mt-6'>
-                                <input className='btn btn-primary' type="submit" value="Log-in" />
+                                <input disabled={disabled} className='btn btn-primary' type="submit" value="Log-in" />
                             </div>
                         </fieldset>
                     </form>
