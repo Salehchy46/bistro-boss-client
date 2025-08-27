@@ -1,13 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    // const captchRef = useRef(null)
+    //Redirect to the page
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const [disabled, setDisabled] = useState(true);
 
     const { signIn } = useContext(AuthContext);
@@ -43,6 +47,7 @@ const Login = () => {
     `
                     }
                 });
+                navigate(from, {replace: true});
             })
     }
 
