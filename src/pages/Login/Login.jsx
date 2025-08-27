@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
 
@@ -39,41 +40,47 @@ const Login = () => {
     }
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
-                </div>
-                <div className="card bg-base-100 md:w-1/2 max-w-sm shadow-2xl">
-                    <form className="card-body" onSubmit={handlelLogin}>
-                        <fieldset className="fieldset">
-                            <div>
-                                <label className="label">Email</label>
-                                <input type="email" name='email' className="input" placeholder="Email" />
-                                <label className="label">Password</label>
-                                <input type="password" name='password' className="input" placeholder="Password" />
-                                <div><a className="link link-hover">Forgot password?</a></div>
-                            </div>
-                            <div className='text-center'>
-                                <label htmlFor="" className='label'>
-                                    <LoadCanvasTemplate />
-                                </label>
-                                <input type="text" ref={captchRef} name='captcha' className='input' placeholder='Input the Captcha' />
-                                <button className="btn btn-outline btn-xs text-center mt-3" onClick={handleValidateCaptcha}>Validate</button>
-                            </div>
-                            <div className='mt-6'>
-                                <input disabled={disabled} className='btn btn-primary' type="submit" value="Log-in" />
-                            </div>
-                        </fieldset>
-                    </form>
-                    <p><small>New Here? <Link to="/register">Create an account</Link></small></p>
+        <>
+            <Helmet>
+                <title>Bistro Boss | Login</title>
+            </Helmet>
+            <div className="hero bg-base-200 min-h-screen">
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                    <div className="text-center lg:text-left">
+                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <p className="py-6">
+                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
+                            quasi. In deleniti eaque aut repudiandae et a id nisi.
+                        </p>
+                    </div>
+                    <div className="card bg-base-100 md:w-1/2 max-w-sm shadow-2xl">
+                        <form className="card-body" onSubmit={handlelLogin}>
+                            <fieldset className="fieldset">
+                                <div>
+                                    <label className="label">Email</label>
+                                    <input type="email" name='email' className="input" placeholder="Email" />
+                                    <label className="label">Password</label>
+                                    <input type="password" name='password' className="input" placeholder="Password" />
+                                    <div><a className="link link-hover">Forgot password?</a></div>
+                                </div>
+                                <div className='text-center'>
+                                    <label htmlFor="" className='label'>
+                                        <LoadCanvasTemplate />
+                                    </label>
+                                    <input type="text" ref={captchRef} name='captcha' className='input' placeholder='Input the Captcha' />
+                                    <button className="btn btn-outline btn-xs text-center mt-3" onClick={handleValidateCaptcha}>Validate</button>
+                                </div>
+                                <div className='mt-6'>
+                                    <input disabled={disabled} className='btn btn-primary' type="submit" value="Log-in" />
+                                </div>
+                            </fieldset>
+                        </form>
+                        <p><small>New Here? <Link to="/register">Create an account</Link></small></p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
+
     )
 };
 
