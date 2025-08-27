@@ -2,26 +2,45 @@ import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Register = () => {
 
-    const {createUser} = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm();
 
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        console.log('User Profile info updated.');
+                        reset();
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "User Created Successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        navigate('/')
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
     }
 
     console.log(watch('example'));
@@ -46,7 +65,10 @@ const Register = () => {
                                 <fieldset className="fieldset">
                                     <label className="label">Name</label>
                                     <input {...register("name", { required: true })} type="name" name='name' className="input" placeholder="Enter Your Name" />
+                                    <label className="label">PhotoURL</label>
                                     {errors.name && <span className='text-red-600'>Name is required</span>}
+                                    <input {...register("photoURL", { required: true })} type="text" className="input" placeholder="Photo URL" />
+                                    {errors.photoURL && <span className='text-red-600'> Photo URL is required</span>}
                                     <label className="label">Email</label>
                                     <input {...register("email", { required: true })} type="email" name='email' className="input" placeholder="Email" />
                                     {errors.email && <span className='text-red-600'>Email is required</span>}
