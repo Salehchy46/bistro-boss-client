@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -63,6 +64,7 @@ const Register = () => {
                                     <input type="submit" value="Sign Up" className="btn btn-neutral mt-4" />
                                 </fieldset>
                             </form>
+                            <p className='m-4'><small>Already have in account? <Link className='font-bold' to='/login'>Login</Link></small></p>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const captchRef = useRef(null)
+    // const captchRef = useRef(null)
     const [disabled, setDisabled] = useState(true);
 
     const { signIn } = useContext(AuthContext);
@@ -25,12 +26,29 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                Swal.fire({
+                    title: "User Login Successful",
+                    showClass: {
+                        popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+                    },
+                    hideClass: {
+                        popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+                    }
+                });
             })
     }
 
-    const handleValidateCaptcha = e => {
+    const handleValidateCaptcha = (e) => {
         e.preventDefault();
-        const user_captcha_value = captchRef.current.value;
+        const user_captcha_value = e.target.value;
         if (validateCaptcha(user_captcha_value)) {
             setDisabled(false);
         }
@@ -67,15 +85,14 @@ const Login = () => {
                                     <label htmlFor="" className='label'>
                                         <LoadCanvasTemplate />
                                     </label>
-                                    <input type="text" ref={captchRef} name='captcha' className='input' placeholder='Input the Captcha' />
-                                    <button className="btn btn-outline btn-xs text-center mt-3" onClick={handleValidateCaptcha}>Validate</button>
+                                    <input type="text" onBlur={handleValidateCaptcha} name='captcha' className='input' placeholder='Input the Captcha' />
                                 </div>
                                 <div className='mt-6'>
                                     <input disabled={disabled} className='btn btn-primary' type="submit" value="Log-in" />
                                 </div>
                             </fieldset>
                         </form>
-                        <p><small>New Here? <Link to="/register">Create an account</Link></small></p>
+                        <p className='m-4'><small>New Here? <Link className='font-bold' to="/register">Create an account</Link></small></p>
                     </div>
                 </div>
             </div>
