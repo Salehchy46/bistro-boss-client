@@ -37,8 +37,16 @@ const Register = () => {
                                 <input {...register("email", {required: true})} type="email" name='email' className="input" placeholder="Email" />
                                 {errors.email && <span className='text-red-600'>Email is required</span>}
                                 <label className="label">Password</label>
-                                <input {...register("password", {required: true, minLength: 6 ,maxLength: 16})} type="password" name='password' className="input" placeholder="Password" />
+                                <input {...register("password", {
+                                    required: true, 
+                                    minLength: 6, 
+                                    maxLength: 16,
+                                    pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9_])/
+                                })} type="password" name='password' className="input" placeholder="Password" />
                                 {errors.password?.type === 'required' && <span className='text-red-600'>Password is required</span>}
+                                {errors.password?.type === 'minLength' && <span className='text-red-600'>Password must be 6 charactered</span>}
+                                {errors.password?.type === 'maxLength' && <span className='text-red-600'>Password must be less than 20 charactered</span>}
+                                {errors.password?.type === 'pattern' && <span className='text-red-600'>Password must have an uppercase, a lowercase, a number and a special character</span>}
                                 <button className="btn btn-neutral mt-4">Sign Up</button>
                             </fieldset>
                         </form>
