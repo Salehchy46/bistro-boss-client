@@ -28,7 +28,11 @@ const Order = () => {
             <Helmet>
                 <title>Bistro Boss | Order Food</title>
             </Helmet>
-            <Cover bgImage={orderCover} coverHeading={"Order Food"}></Cover>
+            <Cover 
+                bgImage={orderCover} 
+                coverHeading={"Order Food"}
+                coverSubHeading={"WOULD YOU LIKE TO TRY A DISH"}
+            ></Cover>
             <div className='my-16 text-center'>
                 <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                     <TabList>
