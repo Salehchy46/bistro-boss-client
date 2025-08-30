@@ -65,7 +65,7 @@ const NavBar = () => {
                         <span className='mr-2'>{user?.displayName}</span>
                         <img src={user?.photoURL} className='w-10 h-10 rounded-full ' alt="" />
                     </div> : <>
-                        <p>Login Please</p>
+                        <p className='navbar-end'>Login Please</p>
                     </>
                 }
             </div>
