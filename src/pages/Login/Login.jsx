@@ -11,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
+    console.log('state capture form', location?.state);
 
     const [disabled, setDisabled] = useState(true);
 
@@ -93,7 +94,8 @@ const Login = () => {
                                     <input type="text" onBlur={handleValidateCaptcha} name='captcha' className='input' placeholder='Input the Captcha' />
                                 </div>
                                 <div className='mt-6'>
-                                    <input disabled={disabled} className='btn btn-primary' type="submit" value="Log-in" />
+                                    {/* TODO: apply disable for recaptcha */}
+                                    <input disabled={false} className='btn btn-primary' type="submit" value="Log-in" />
                                 </div>
                             </fieldset>
                         </form>
