@@ -14,7 +14,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-base-200">
+    <div className="flex justify-center items-center min-h-screen bg-base-200 my-10">
       <div className="w-full max-w-2xl bg-base-100 p-8 rounded-2xl shadow-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name & Email */}
