@@ -11,6 +11,9 @@ import Register from '../pages/Register/Register';
 import PrivateRoute from './PrivateRoute';
 import Secret from '../pages/Home/shared/Secret/Secret';
 import ContactUs from '../pages/ContactUs/ContactUs';
+import Dashboard from '../Layout/Dashboard';
+import Cart from '../pages/Dashboard/Cart/Cart';
+import UserHome from '../pages/Dashboard/UserHome/UserHome';
 
 export const router = createBrowserRouter([
     {
@@ -44,6 +47,20 @@ export const router = createBrowserRouter([
             {
                 path: '/contactus',
                 element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>
+            }
+        ]
+    },
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: 'cart',
+                element: <Cart></Cart>
+            },
+            {
+                path: 'userhome',
+                element: <UserHome></UserHome>,
             }
         ]
     }
