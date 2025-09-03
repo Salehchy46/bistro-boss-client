@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin';
 
 const Login = () => {
 
@@ -95,10 +96,12 @@ const Login = () => {
                                 </div>
                                 <div className='mt-6'>
                                     {/* TODO: apply disable for recaptcha */}
-                                    <input disabled={false} className='btn btn-primary' type="submit" value="Log-in" />
+                                    <input disabled={false} className='btn btn-primary w-full' type="submit" value="Log-in" />
                                 </div>
                             </fieldset>
                         </form>
+                        <div className="divider">OR</div>
+                        <SocialLogin></SocialLogin>
                         <p className='m-4'><small>New Here? <Link className='font-bold' to="/register">Create an account</Link></small></p>
                     </div>
                 </div>
