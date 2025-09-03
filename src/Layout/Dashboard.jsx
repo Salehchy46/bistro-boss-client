@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaAd, FaCalendar, FaHome, FaList, FaShoppingCart, FaWallet } from 'react-icons/fa';
+import { FaAd, FaCalendar, FaEnvelope, FaHome, FaJediOrder, FaList, FaShoppingCart, FaVoicemail, FaWallet } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
 import useCart from '../hooks/useCart';
 
@@ -82,6 +82,8 @@ const Dashboard = () => {
                             <FaHome className='mr-4' />
                             Home
                         </NavLink>
+                    </li>
+                    <li>
                         <NavLink to='/menu' className={({ isActive }) =>
                             isActive
                                 ? "bg-black uppercase font-bold text-white px-3 py-2 rounded"
@@ -89,6 +91,26 @@ const Dashboard = () => {
                         }>
                             <FaList className='mr-4' />
                             Menu
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/order/salad' className={({ isActive }) =>
+                            isActive
+                                ? "bg-black uppercase font-bold text-white px-3 py-2 rounded"
+                                : "px-3 py-2 uppercase font-bold rounded hover:border-b-0"
+                        }>
+                            <FaJediOrder className='mr-4' />
+                            Order
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/contactus' className={({ isActive }) =>
+                            isActive
+                                ? "bg-black uppercase font-bold text-white px-3 py-2 rounded"
+                                : "px-3 py-2 uppercase font-bold rounded hover:border-b-0"
+                        }>
+                            <FaEnvelope className='mr-4' />
+                            Contact Us
                         </NavLink>
                     </li>
                 </ul>
