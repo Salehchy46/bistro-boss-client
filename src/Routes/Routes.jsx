@@ -14,6 +14,7 @@ import ContactUs from '../pages/ContactUs/ContactUs';
 import Dashboard from '../Layout/Dashboard';
 import Cart from '../pages/Dashboard/Cart/Cart';
 import UserHome from '../pages/Dashboard/UserHome/UserHome';
+import AllUsers from '../pages/Dashboard/AllUsers/AllUsers';
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +62,12 @@ export const router = createBrowserRouter([
             {
                 path: 'userhome',
                 element: <UserHome></UserHome>,
+            },
+
+            // Admin routes
+            {
+                path: 'allusers',
+                element: <AllUsers></AllUsers>
             }
         ]
     }
