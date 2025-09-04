@@ -17,7 +17,20 @@ const AllUsers = () => {
     })
 
     const handleMakeAdmin = user => {
-        
+        axiosSecure.patch(`/users/admin/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} has been promoted to admin.`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
     const handleDeleteUser = user => {
@@ -72,14 +85,19 @@ const AllUsers = () => {
                                 <td>{user.email}</td>
 
                                 <th>
-                                    <button
-                                        onClick={() => handleMakeAdmin(user)}
-                                        className="btn btn-ghost btn-xs bg-yellow-600 p-2 text-white"><FaUsers className='text-xl'></FaUsers></button>
+                                    {
+                                        user.role === 'admin' ? 'Admin' :
+                                            <button
+                                                onClick={() => handleMakeAdmin(user)}
+                                                className="btn btn-ghost btn-xs bg-yellow-600 p-2 text-white"><FaUsers className='text-xl'></FaUsers>
+                                            </button>
+                                    }
                                 </th>
                                 <td>
                                     <button
                                         onClick={() => handleDeleteUser(user)}
-                                        className="btn btn-ghost bg-red-500 btn-xs text-white p-2"><FaTrash className='text-xl'></FaTrash></button>
+                                        className="btn btn-ghost bg-red-500 btn-xs text-white p-2"><FaTrash className='text-xl'></FaTrash>
+                                    </button>
                                 </td>
                             </tr>)
                         }
