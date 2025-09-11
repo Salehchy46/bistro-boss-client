@@ -1,11 +1,15 @@
 import axios from 'axios';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const axiosSecure = axios.create({
     baseURL: 'http://localhost:5000'
 })
 
 const useAxiosSecure = () => {
+
+    const navigate = useNavigate();
+
     //request interceptor to add authorization for every secure call to the API
     axiosSecure.interceptors.request.use(function(config) {
         const token = localStorage.getItem('access-token');
@@ -22,7 +26,10 @@ const useAxiosSecure = () => {
         return response;
     }, (error) => {
         const status = error.response.status;
-        console.log('status error in the4 interceptors', error);
+        console.log('status error in the4 interceptors', status);
+        if(status === 401 || status === 403) {
+            navigate('/login');
+        }
         return Promise.reject(error);
     })
 
